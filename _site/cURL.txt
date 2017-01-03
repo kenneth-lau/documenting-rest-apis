@@ -1,0 +1,3 @@
+curl --get --include 'https://simple-weather.p.mashape.com/aqi?lat=1.0&lng=1.0' \
+  -H 'X-Mashape-Key: pbhQPUuLM4msh8OLRZBJBEQYDqS5p1DgNvrjsnNQrzzbs2G4an' \
+  -H 'Accept: text/plain'

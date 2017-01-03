@@ -1,0 +1,4 @@
+Fly to Zoo
+ID:bD7gjzP1GHatTTZk8UP6t
+SECRET:03m3JkyXnQWG0lhIkHTeWxqPIH1GU1gXcQkXs2QL
+NAMESPACE:localhost

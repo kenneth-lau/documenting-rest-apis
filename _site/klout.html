@@ -1,0 +1,34 @@
+<html>
+<body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "http://api.klout.com/v2/user.json/1134760/influence?key=u4r7nd3r7bj9ksxfx3cuy6hw&callback=?",
+    "method": "GET",
+    "dataType": "jsonp",
+    "headers": {}
+  }
+
+  $.ajax(settings).done(function (data) {
+    console.log(data);
+    $.each( data.myInfluencees, function( i, inf ) {
+       $("#kloutinfluencees").append('<li><a href="http://twitter.com/'+inf.entity.payload.nick + '">' + inf.entity.payload.nick + '</a></li>');
+     });
+    $.each( data.myInfluencers, function( i, inf ) {
+       $("#kloutinfluencers").append('<li><a href="http://twitter.com/'+inf.entity.payload.nick + '">' + inf.entity.payload.nick + '</a></li>');
+     });
+  });
+</script>
+
+<h2>My influencees (people I influence)</h2>
+<ul id="kloutinfluencees"></ul>
+
+<h2>My influencers (people who influence me)</h2>
+<ul id="kloutinfluencers"></ul>
+
+</body>
+</html>
