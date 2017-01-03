@@ -1,0 +1,33 @@
+<html>
+
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+ <script>
+
+ var settings = {
+  "async": true,
+  "crossDomain": true,
+  "dataType": "json",
+  "url": "https://simple-weather.p.mashape.com/weatherdata?lat=43.0621&lng=141.3544",
+  "method": "GET",
+  "headers": {
+    "x-mashape-key": "pbhQPUuLM4msh8OLRZBJBEQYDqS5p1DgNvrjsnNQrzzbs2G4an",
+    "accept": "application/json",
+    "cache-control": "no-cache",
+    "postman-token": "33709803-9dbd-4364-0aef-04f46a29738a"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+
+  var content = response.query.results.channel.wind.speed;
+  $("#weatherDescription").append(content);
+});
+</script>
+ <div id="weatherDescription"></div>
+
+
+ </body>
+ </html>
