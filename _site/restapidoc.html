@@ -1,0 +1,157 @@
+<h1 id="resource-description">Resource description</h1>
+
+<!--The Surf Report API lets you check tide and wave conditions and also provides a recommendation for whether to go hit the waves or not.-->
+
+<h2 id="surfreportbeachid">surfreport/{beachId}</h2>
+<p>Returns information about surfing conditions at a specific beach ID, including the surf height, water temperature, wind, and tide. Also provides an overall recommendation about whether to go surfing.</p>
+
+<p><code class="highlighter-rouge"><span class="p">{</span><span class="err">beachId</span><span class="p">}</span></code> refers to the ID for the beach you want to look up. All Beach ID codes are available from our site.</p>
+
+<h1 id="endpoint">Endpoint</h1>
+<p><code class="highlighter-rouge">get</code> <code class="highlighter-rouge">surfreport/{beachID}</code></p>
+
+<h1 id="methods">Methods</h1>
+
+<h1 id="parameters">Parameters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Required</th>
+      <th>Description</th>
+      <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>days</td>
+      <td>Optional</td>
+      <td>Number of days to include. Default: 3</td>
+      <td>Integer</td>
+    </tr>
+    <tr>
+      <td>units</td>
+      <td>Optional</td>
+      <td>Either <code class="highlighter-rouge">imperial</code> or <code class="highlighter-rouge">metric</code></td>
+      <td>string</td>
+    </tr>
+    <tr>
+      <td>time</td>
+      <td>Optional</td>
+      <td>If you include the time, only the current hour wil be returned</td>
+      <td>integer (Unix format)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="request-submission-example">Request submission example</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl --get --include 'https://simple-weather.p.mashap .com/surfreport/123?units=imperial&amp;days=1&amp;time=1433772000' -H 'X-Mashape-Key: APIKEY' -H 'Accept: application/json'
+</code></pre>
+</div>
+
+<h1 id="request-response-example">Request response example</h1>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"surfreport"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"beach"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Santa Cruz"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"monday"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nt">"1pm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"tide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"wind"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"watertemp"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"surfheight"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"recommendation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Go surfing!"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"2pm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"tide"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"wind"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"watertemp"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"surfheight"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"recommendation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Surfing conditions are okay, not great."</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"3pm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"tide"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"wind"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"watertemp"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"surfheight"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"recommendation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not a good day for surfing."</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Response item</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>beach</td>
+      <td>The beach you selected based on the beach ID in the request. The beach name is the official name as described in the National Park Service Geodatabase.</td>
+    </tr>
+    <tr>
+      <td>{day}</td>
+      <td>The day of the week selected. A maximum of 3 days get returned in the response.</td>
+    </tr>
+    <tr>
+      <td>{time}</td>
+      <td>The time for the conditions. This item is only included if you include a time parameter in the request.</td>
+    </tr>
+    <tr>
+      <td>{day}/{time}/tide</td>
+      <td>The level of tide at the beach for a specific day and time. Tide is the distance inland that the water rises to, and can be a positive or negative number. When the tide is out, the number is negative. When the tide is in, the number is positive. The 0 point reflects the line when the tide is neither going in nor out but is in transition between the two states.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 id="status-and-error-codes">Status and error codes</h1>
+
+<h1 id="code-samples">Code samples</h1>
+<p>The following code samples shows how to use the surfreport endpoint to get the surf conditions for a specific beach. In this case, the code shows the overall recommendation about whether to go surfing.</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://code.jquery.com/jquery-2.1.1.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"async"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"crossDomain"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://simple-weather.p.mashape.com/surfreport/25"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"accept"</span><span class="p">:</span> <span class="s2">"application/json"</span><span class="p">,</span>
+    <span class="s2">"x-mashape-key"</span><span class="p">:</span> <span class="s2">"APIKEY"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">"#surfheight"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">channel</span><span class="p">.</span><span class="nx">surf</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Surf Height<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"surfheight"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<p>In this example, the <code class="highlighter-rouge">ajax</code> method from jQuery is used because it allows us to load a remote resource asynchronously.</p>
+
+<p>In the request, you submit the authorization through the header rather than directly in the endpoint path. The endpoint limits the days returned to 1 in order to increase the download speed.</p>
+
+<p>For demonstration purposes, the <code class="highlighter-rouge">response</code> is assigned to the response argument of the <code class="highlighter-rouge">done</code> method, and then written out to the <code class="highlighter-rouge">surfheight</code> tag on the page.</p>
+
+<p>We’re just getting the surf height, but there’s a lot of other data you could choose to display.</p>

@@ -1,3 +1,7 @@
+---
+layout: Default
+---
+
 # Resource description
 
 <!--The Surf Report API lets you check tide and wave conditions and also provides a recommendation for whether to go hit the waves or not.-->
@@ -14,6 +18,7 @@ Returns information about surfing conditions at a specific beach ID, including t
 
 
 # Parameters
+
 |Parameter|Required|Description|Type|
 |---|---|---|---|
 |days|Optional|Number of days to include. Default: 3|Integer|
@@ -60,6 +65,7 @@ curl --get --include 'https://simple-weather.p.mashap .com/surfreport/123?units=
     ]
 }
 ```
+
 |Response item|Description|
 |---|---|
 |beach|The beach you selected based on the beach ID in the request. The beach name is the official name as described in the National Park Service Geodatabase.|
