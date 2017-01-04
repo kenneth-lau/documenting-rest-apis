@@ -1,6 +1,7 @@
 ---
 title: Index
 layout: default
+permalink: index.html
 ---
 
 # Notes on the "Documenting REST APIs" course
