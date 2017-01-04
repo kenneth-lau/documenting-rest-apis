@@ -4,7 +4,7 @@ layout: Default
 
 # Resource description
 
-<!--The Surf Report API lets you check tide and wave conditions and also provides a recommendation for whether to go hit the waves or not.-->
+The Surf Report API lets you check tide and wave conditions and also provides a recommendation for whether to go hit the waves or not.
 
 ## surfreport/{beachId}
 Returns information about surfing conditions at a specific beach ID, including the surf height, water temperature, wind, and tide. Also provides an overall recommendation about whether to go surfing.
@@ -66,12 +66,12 @@ curl --get --include 'https://simple-weather.p.mashap .com/surfreport/123?units=
 }
 ```
 
-|Response item|Description|
-|---|---|
-|beach|The beach you selected based on the beach ID in the request. The beach name is the official name as described in the National Park Service Geodatabase.|
-|{day}|The day of the week selected. A maximum of 3 days get returned in the response.|
-|{time}|The time for the conditions. This item is only included if you include a time parameter in the request.|
-|{day}/{time}/tide|The level of tide at the beach for a specific day and time. Tide is the distance inland that the water rises to, and can be a positive or negative number. When the tide is out, the number is negative. When the tide is in, the number is positive. The 0 point reflects the line when the tide is neither going in nor out but is in transition between the two states.|
+| Response item | Description |
+| ---| --- |
+| beach |The beach you selected based on the beach ID in the request. The beach name is the official name as described in the National Park Service Geodatabase. |
+| {day} |The day of the week selected. A maximum of 3 days get returned in the response. |
+| {time} |The time for the conditions. This item is only included if you include a time parameter in the request. |
+| {day}/{time}/tide | The level of tide at the beach for a specific day and time. Tide is the distance inland that the water rises to, and can be a positive or negative number. When the tide is out, the number is negative. When the tide is in, the number is positive. The 0 point reflects the line when the tide is neither going in nor out but is in transition between the two states. |
 
 # Status and error codes
 
