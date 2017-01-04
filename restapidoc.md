@@ -1,5 +1,5 @@
 ---
-layout: Default
+
 ---
 
 # Resource description
